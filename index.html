@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="robots" content="INDEX, FOLLOW">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+	  <link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css" />
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .sidenav{
+        	height: 100%;
+        	width: 0;
+        	position: fixed;
+        	top: 0;
+        	left: 0;
+        	z-index: 1;
+        	background: #4da6ff;
+        	overflow-x: hidden;
+        	padding-top: 60px;
+        	transition: width 0.1s;
+        	transition-timing-function: linear;
+        }
+        .sidenav a{
+        	text-decoration: none;
+        	font-size: 20px;
+        	color: #fff;
+        	display: block;
+        	padding: 10px 10px 10px 10px;
+        }
+        .sidenav a:hover{
+        	color: silver;
+        }
+        .closebtn{
+        	position: absolute;
+        	top: 0;
+        	right: 2px;
+        	font-size: 35px!important;
+        	padding-top: 0!important;
+        }
+        .name{
+        	padding-left: 50px;
+        	color: #fff;
+        }
+        .menulines{
+        	color: #fff;
+        }
+        .sidenav a.active{
+        	background-color: #2196F3;
+            border-radius: 5px;
+            padding: 10px 10px 10px 10px;
+        }
+        .para{
+        	text-align: center;
+        	font-size: 60px;
+        }
+        .maindiv img{
+        	width: 100%;
+        	height: 50%;
+        	margin-top: 18%;
+        	margin-left: 50%;
+        	transform: translate(-50%, -25%);
+        	animation: slider 1s infinite linear;
+        }
+        .demo{
+          text-align: center;
+        }
+        .Ending{
+        	font-size: 20px;
+        	color: #fff;
+        	padding: 15px 15px 15px 15px;
+        	text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+<header>
+<div class="navbar navbar-dark bg-primary">
+    
+    <div>
+        <span class="menulines" onclick="openNav()">&#9776;</span>
+    </div>
+    <span class="name">Shivesh Tiwari</span>
+
+</div>
+</header>
+
+    <div class="sidenav bg-primary" id="mySidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">
+            &times;
+        </a>
+
+        <center>
+        <img src="logo.png" width="100" height="100" class="logo" alt="logo">
+        </center>
+
+        <hr class="bg-light">
+        
+        <a href="" class="active"><i class="fa fa-home" area-hidden="true"></i> Home</a>
+
+        <a href="Youtube.html"><i class="fa fa-youtube-play" area-hidden="true"></i> Youtube</a>
+
+        <a href="https://webofst.blogspot.com" target="_blank"><i class="fa fa-wechat" area-hidden="true"></i> ST's blog</a>
+
+        <hr class="bg-light">
+
+        <a href="apps.html"><i class="fa fa-windows" area-hidden="true"></i> Apps</a>
+
+        <hr class="bg-light">
+        
+    </div>
+
+<script>
+
+    function openNav(){
+        document.getElementById('mySidenav').style.width ="230px";
+    }
+
+    function closeNav(){
+        document.getElementById('mySidenav').style.width ="0";
+    }
+
+</script>
+
+<h1 class="demo">Welcome to the World of 
+    <span
+        class="txt-rotate"
+        data-period="2000"
+        data-rotate='[ "Web", "Web development", "Entertainment", "Fun", "Shivesh Tiwari" ]'>
+	  </span>
+</h1>
+
+<script>
+var TxtRotate = function(el, toRotate, period) {
+  this.toRotate = toRotate;
+  this.el = el;
+  this.loopNum = 0;
+  this.period = parseInt(period, 10) || 2000;
+  this.txt = '';
+  this.tick();
+  this.isDeleting = false;
+};
+
+TxtRotate.prototype.tick = function() {
+  var i = this.loopNum % this.toRotate.length;
+  var fullTxt = this.toRotate[i];
+
+  if (this.isDeleting) {
+    this.txt = fullTxt.substring(0, this.txt.length - 1);
+  } else {
+    this.txt = fullTxt.substring(0, this.txt.length + 1);
+  }
+
+  this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+  var that = this;
+  var delta = 300 - Math.random() * 100;
+
+  if (this.isDeleting) { delta /= 2; }
+
+  if (!this.isDeleting && this.txt === fullTxt) {
+    delta = this.period;
+    this.isDeleting = true;
+  } else if (this.isDeleting && this.txt === '') {
+    this.isDeleting = false;
+    this.loopNum++;
+    delta = 500;
+  }
+
+  setTimeout(function() {
+    that.tick();
+  }, delta);
+};
+
+window.onload = function() {
+  var elements = document.getElementsByClassName('txt-rotate');
+  for (var i=0; i<elements.length; i++) {
+    var toRotate = elements[i].getAttribute('data-rotate');
+    var period = elements[i].getAttribute('data-period');
+    if (toRotate) {
+      new TxtRotate(elements[i], JSON.parse(toRotate), period);
+    }
+  }
+  // INJECT CSS
+  var css = document.createElement("style");
+  css.type = "text/css";
+  css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
+  document.body.appendChild(css);
+};
+
+</script>
+
+<hr>
+
+<div class="maindiv">
+<img src="https://source.unsplash.com/collection/190727/1600x900">
+</div>
+
+<hr><hr>
+
+<div class="container-fluid">
+	Hey guys, welcome to the site of Shivesh. Click on the hamburger &#9776; menu and find different categories for your user experience.
+	<br><br>
+	<ul>
+		<li><b>Web Developer:</b> <i>Shivesh Tiwari</i></li>
+		<li><b>Type:</b> <i>solo developer</i></li>
+	</ul>
+</div>
+
+<hr><hr>
+
+<br>
+
+<center>
+<br>
+<h2>About me</h2>
+
+<hr>
+<br><br>
+
+<div data-aos="fade-right">
+	<img src="youtube.jpg" height="45%" width="25%">
+    <div class="para">Youtuber</div>
+    <div class="container-fluid">
+    	You can get my youtube channels in the Youtube category in the sidebar. I have two channels. One for programming and other for entertainment.
+    </div>
+</div>
+
+<br><br>
+
+<div data-aos="fade-left">
+	<img src="blogger.png" height="45%" width="25%">
+    <div class="para">Blogger</div>
+    <div class="container-fluid">
+    	You can go to my Blog in the ST's blog category in the sidebar. You can send me comments on my blogs and connect to me.
+    </div>
+</div>
+
+<br><br>
+
+<div class="Ending bg-primary">
+	Enjoy my site. This site provides you various fields. This is the personal site of Shivesh Tiwari.
+</div>
+
+</center>
+</div>
+
+<script>
+
+    function openNav(){
+        document.getElementById('mySidenav').style.width ="250px";
+    }
+
+    function closeNav(){
+        document.getElementById('mySidenav').style.width ="0";
+    }
+
+</script>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+</body>
+</html>
